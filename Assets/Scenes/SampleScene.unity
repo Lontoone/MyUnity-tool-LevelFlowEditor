@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 103280725}
   - component: {fileID: 103280726}
   m_Layer: 0
-  m_Name: ConnectPoint
+  m_Name: d8b32edd-3468-48e7-9ecc-391dbee12733
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 103280724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.72, y: 0, z: 0}
+  m_LocalPosition: {x: 7.53, y: 0.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41581b305a4f8a24284dbf0bdd51328f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  portSetId: e0b878cf-4be4-4069-8b62-1828d494fb4e
 --- !u!1 &361020227
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +178,7 @@ GameObject:
   - component: {fileID: 361020229}
   - component: {fileID: 361020228}
   m_Layer: 0
-  m_Name: ConnectPoint (1)
+  m_Name: 5df3832f-2c76-4ff2-8ab3-43c5e188e9e3
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -195,6 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41581b305a4f8a24284dbf0bdd51328f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  portSetId: 614d8565-2b65-4c15-b983-4593411b081e
 --- !u!4 &361020229
 Transform:
   m_ObjectHideFlags: 0

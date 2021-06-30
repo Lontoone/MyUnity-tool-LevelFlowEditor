@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.Callbacks;
+using UnityEditor.SceneManagement;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -26,7 +27,7 @@ public class LevelEditorWindow : EditorWindow
             window.titleContent = new GUIContent("Level Flow Editor");
             window.flowData = item as LevelMapSO;
             window.minSize = new Vector2(500, 250);
-            //window.Load();
+            window.Load();
         }
         return false;
     }
@@ -34,7 +35,7 @@ public class LevelEditorWindow : EditorWindow
     {
         ConstructGraphView(); //產生注意順序
         GenerateToolBar();
-        //Load();
+        Load();
     }
 
     //建立網格背景
@@ -108,16 +109,18 @@ public class LevelEditorWindow : EditorWindow
             mapSaveLoad.Save(flowData);
         }
     }
-    private void Load() {
+    private void Load()
+    {
         if (flowData != null)
         {
+            Debug.Log("load");
             mapSaveLoad.Load(flowData);
         }
     }
 
     private void SampleCurrentScene()
     {
-        //get current Scene
+        //get current Scene 
         Scene _currentScene = SceneManager.GetActiveScene();
 
         //get current Scene's node
@@ -126,29 +129,53 @@ public class LevelEditorWindow : EditorWindow
         //create one if not exist
         if (_currentNode == null)
         {
-            /*
-            _currentNode = graphView.CreateLevelNode(Vector2.zero);
-            _currentNode.SetScene(_currentNode);
-            graphView.AddElement(_currentNode);*/
             return;
         }
-        //get current Scene's node's sub view
+        _currentNode.ClearLevelConnectPort();
 
         //get all the enter point
         ConnectPoint[] points = FindObjectsOfType<ConnectPoint>();
-        Vector3[] _projectedPoints = new Vector3[points.Length];
+        _currentNode.RemoveNoExistingPortSet(points);
+
+        Vector3[] _projectedPoints = ProjectPointsToPlane(new Vector3(0, 1, 0), points);
+
+        //sample points' distance to sub view
+        Vector3[] _subViewPoints = ProjectToSubView(_projectedPoints);
+
+        for (int i = 0; i < _subViewPoints.Length; i++)
+        {
+            //create port
+            //PortSet _set = _currentNode.CreateLevelPort(_subViewPoints[i], points[i].id, points[i].name);
+            PortSet _set = _currentNode.CreateLevelPort(_subViewPoints[i], points[i].portSetId, points[i].name);
+            points[i].portSetId = _set.setGuid;
+
+            //Test:
+            //points[i].name = _set.setGuid;
+        }
+        //不mark dirty不能存檔
+        EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+
+    }
+    private Vector3[] ProjectPointsToPlane(Vector3 _heightAxist, ConnectPoint[] _points)
+    {
+        Vector3[] _projectedPoints = new Vector3[_points.Length];
 
         Vector3 _widthProjectAxis = new Vector3(1, 0, 0);
-        Vector3 _heightProjectAxis = new Vector3(0, 1, 0); //temp ignore z axis        
-        for (int i = 0; i < points.Length; i++)
+        Vector3 _heightProjectAxis = _heightAxist;
+        for (int i = 0; i < _points.Length; i++)
         {
-            Vector3 _projectPoint = points[i].transform.position;
+            Vector3 _projectPoint = _points[i].transform.position;
             _projectPoint.x = Vector3.Dot(_projectPoint, _widthProjectAxis);
             _projectPoint.y = Vector3.Dot(_projectPoint, _heightProjectAxis);
             _projectedPoints[i] = _projectPoint;
         }
 
-        float subMapViewSize = LevelNode.SUB_MAP_VIEW_SIZE - 100;
+        return _projectedPoints;
+
+    }
+    private Vector3[] ProjectToSubView(Vector3[] _projectedPoints)
+    {
+        float subMapViewSize = LevelNode.SUB_MAP_VIEW_SIZE - 50;
 
         float _maxHeight = _projectedPoints.ToList().Max(i => i.y);
         float _minHeight = _projectedPoints.ToList().Min(i => i.y);
@@ -160,7 +187,7 @@ public class LevelEditorWindow : EditorWindow
         float _heightGap = _maxHeight - _minHeight;
 
         //sample points' distance to sub view
-        Vector3[] _subViewPoints = new Vector3[points.Length];
+        Vector3[] _subViewPoints = new Vector3[_projectedPoints.Length];
         for (int i = 0; i < _subViewPoints.Length; i++)
         {
             _subViewPoints[i] = new Vector2(
@@ -170,13 +197,7 @@ public class LevelEditorWindow : EditorWindow
 
             //UI 需要翻轉y軸
             _subViewPoints[i].y = subMapViewSize - _subViewPoints[i].y;
-
-            Debug.Log(points[i].name + "  " + points[i].transform.position + " " + _projectedPoints[i] + "  " + _subViewPoints[i]);
-            //create port
-            _currentNode.AddSubGraphViewLevelConnectPort(_subViewPoints[i], points[i].GetInstanceID().ToString(), points[i].name);
         }
-
-
-
+        return _subViewPoints;
     }
 }
