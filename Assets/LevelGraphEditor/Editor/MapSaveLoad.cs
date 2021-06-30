@@ -42,19 +42,23 @@ public class MapSaveLoad
     private void SaveNodes(LevelMapSO _levelFlowSO)
     {
         _levelFlowSO.levelNodeDatas.Clear();
+        _levelFlowSO.startNodeDatas.Clear();
         Debug.Log("Save Nodes ");
         foreach (BaseNode _node in nodes)
         {
             switch (_node)
             {
                 case LevelNode _lvNode:
-                    _levelFlowSO.levelNodeDatas.Add(SaveNodeData(_node));
+                    _levelFlowSO.levelNodeDatas.Add(SaveNodeData(_lvNode));
+                    break;
+                case StartNode _startNode:
+                    _levelFlowSO.startNodeDatas.Add(SaveNodeData(_startNode, _levelFlowSO));
                     break;
             }
         }
     }
 
-    private LevelNodeData SaveNodeData(BaseNode _lvnode)
+    private LevelNodeData SaveNodeData(LevelNode _lvnode)
     {
         LevelNode _node = (LevelNode)_lvnode;
         Debug.Log("SAVE portset count " + _node.portSets.Count);
@@ -66,6 +70,21 @@ public class MapSaveLoad
             //scene = _node.scene,
             scenePath = _node.scenePath,
 
+        };
+        return _data;
+
+    }
+
+    private StartNodeData SaveNodeData(StartNode _lvnode, LevelMapSO _levelFlowSO)
+    {
+        StartNode _node = (StartNode)_lvnode;
+
+        StartNodeData _data = new StartNodeData
+        {
+            guid = _node.NodeGuid,
+            position = _node.GetPosition().position,
+            portSet = _node.portSet
+            //nextInPortGuid = _levelFlowSO.linkDatas.Find(x => x.outPortGuid == _node.).inPortGuid
         };
         return _data;
 
@@ -89,6 +108,15 @@ public class MapSaveLoad
     }
     private void GenerateNodes(LevelMapSO _levelFlowSO)
     {
+        //Start Data 
+        foreach (StartNodeData _data in _levelFlowSO.startNodeDatas)
+        {
+            StartNode _startNode = graphView.CreateStartNode(_data.position, _data.portSet);
+            _startNode.NodeGuid = _data.guid;
+            //_startNode.portSet = _data.portSet;            
+            graphView.AddElement(_startNode);
+        }
+        //Level Node
         foreach (LevelNodeData _data in _levelFlowSO.levelNodeDatas)
         {
             LevelNode _lvNode = graphView.CreateLevelNode(_data.position);
@@ -109,14 +137,17 @@ public class MapSaveLoad
         for (int i = 0; i < _allPortSets.Count; i++)
         {
             List<LinkData> connections = _levelFlowSO.linkDatas.Where(edge => edge.outPortGuid == _allPortSets[i].localOutGuid).ToList();
+            //List<LinkData> connections = _levelFlowSO.linkDatas.Where(edge => edge.inPortGuid == _allPortSets[i].localInGuid).ToList();
             for (int j = 0; j < connections.Count; j++)
             {
                 PortSet _outPortSet = _allPortSets.Find(x => x.localOutGuid == connections[j].outPortGuid);
                 PortSet _inPortSet = _allPortSets.Find(x => x.localInGuid == connections[j].inPortGuid);
 
-                LevelNode _outNode = (LevelNode)nodes.Find(x => x.NodeGuid == _outPortSet.nodeGuid);
-                LevelNode _inNode = (LevelNode)nodes.Find(x => x.NodeGuid == _inPortSet.nodeGuid);
+                BaseNode _outNode = (BaseNode)nodes.Find(x => x.NodeGuid == _outPortSet.nodeGuid);
+                BaseNode _inNode = (BaseNode)nodes.Find(x => x.NodeGuid == _inPortSet.nodeGuid);
 
+                //Port _outPort = _outNode.outPorts.Find(x => x.name == connections[j].outPortGuid);
+                //Port _inPort = _inNode.inPorts.Find(x => x.name == connections[j].inPortGuid);
                 Port _outPort = _outNode.outPorts.Find(x => x.name == connections[j].outPortGuid);
                 Port _inPort = _inNode.inPorts.Find(x => x.name == connections[j].inPortGuid);
                 LinkNodesTogether(_outPort, _inPort);

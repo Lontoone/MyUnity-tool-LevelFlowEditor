@@ -41,9 +41,19 @@ public class LevelFlowGraphView : GraphView
         LevelNode tmp = new LevelNode(_pos, editorWindow, this);
         return tmp;
     }
+    public StartNode CreateStartNode(Vector2 _pos)
+    {
+        StartNode tmp = new StartNode(_pos, editorWindow, this);
+        return tmp;
+    }
+    public StartNode CreateStartNode(Vector2 _pos, PortSet _portSet)
+    {
+        StartNode tmp = new StartNode(_pos, editorWindow, this, _portSet);
+        return tmp;
+    }
 
     public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
-    {        
+    {
         List<Port> compatiblePorts = new List<Port>();
         Port startPortView = startPort;
         //ports 會取得全部的port

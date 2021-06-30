@@ -15,7 +15,8 @@ public class NodeSearchWindow : ScriptableObject, ISearchWindowProvider
             new SearchTreeGroupEntry(new GUIContent("Level Flow"),0),
             new SearchTreeGroupEntry(new GUIContent("Level Node"),1),
 
-            AddNodeSearch("Start Node",new LevelNode())
+            AddNodeSearch("Start Node",new StartNode()),
+            AddNodeSearch("Level Node",new LevelNode())
         };
 
         return tree;
@@ -53,6 +54,10 @@ public class NodeSearchWindow : ScriptableObject, ISearchWindowProvider
         {
             case LevelNode node:
                 graphView.AddElement(graphView.CreateLevelNode(_pos));
+                return true;
+
+            case StartNode node:
+                graphView.AddElement(graphView.CreateStartNode(_pos));
                 return true;
 
             default:

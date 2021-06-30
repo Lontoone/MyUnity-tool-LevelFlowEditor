@@ -16,9 +16,8 @@ public class LevelNode : BaseNode
     public List<PortSet> portSets = new List<PortSet>();
     //public static Dictionary<string, Port> portIds = new Dictionary<string, Port>();
 
-    public List<Port> inPorts = new List<Port>();
-    public List<Port> outPorts = new List<Port>();
-    public List<LevelNodeData> portsData = new List<LevelNodeData>();
+    //public List<Port> inPorts = new List<Port>();
+    //public List<Port> outPorts = new List<Port>();
 
     public object scene;
     public string scenePath;
@@ -77,7 +76,7 @@ public class LevelNode : BaseNode
     private Port[] CreatePortSet(Vector2 _pos, string _title = "port")
     {
         Port _outPort = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, typeof(float));
-        Port _inPort = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(float));
+        Port _inPort = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, typeof(float));
         Label textLabel = new Label(_title);
         _inPort.portName = "in";
         _outPort.portName = "out";
@@ -112,7 +111,7 @@ public class LevelNode : BaseNode
             Port[] ports = CreatePortSet(_pos, _title);
 
             //Save guid to name
-            _portSet = new PortSet(_objSetId, nodeGuid, _pos, _title);
+            _portSet = new PortSet(nodeGuid, _pos, _title);
             ports[0].name = _portSet.localInGuid;
             ports[1].name = _portSet.localOutGuid;
             portSets.Add(_portSet);

@@ -10,6 +10,7 @@ public class LevelMapSO : ScriptableObject
     //public List<NodeLinkData> nodeLinkDatas = new List<NodeLinkData>();
     //TODO: data...
     //public List<BaseNodeData> baseNodeDatas = new List<BaseNodeData>();
+    public List<StartNodeData> startNodeDatas = new List<StartNodeData>();
     public List<LevelNodeData> levelNodeDatas = new List<LevelNodeData>();
     public List<PortSet> allPortSets
     {
@@ -19,6 +20,10 @@ public class LevelMapSO : ScriptableObject
             for (int i = 0; i < levelNodeDatas.Count; i++)
             {
                 _temp.AddRange(levelNodeDatas[i].portSets);
+            }
+            for (int i = 0; i < startNodeDatas.Count; i++)
+            {
+                _temp.Add(startNodeDatas[i].portSet);
             }
             return _temp;
         }
@@ -55,6 +60,12 @@ public class BaseNodeData
     public Vector2 position;
 }
 [System.Serializable]
+public class StartNodeData : BaseNodeData
+{
+    public PortSet portSet = new PortSet();
+    public string nextInPortGuid;
+}
+[System.Serializable]
 public class LevelNodeData : BaseNodeData
 {
     public List<PortSet> portSets = new List<PortSet>();
@@ -69,18 +80,18 @@ public class PortSet
     public string setGuid;
     public string localInGuid;
     public string localOutGuid;
-    public string pointObjectInstanceId;
+    //public string pointObjectInstanceId;
     public string pointObjectName;
     public string nodeGuid;
     public Vector2 position;
 
     public PortSet() { }
-    public PortSet(string _pointObjId, string _nodeId, Vector2 _pos, string _pointObjName)
+    public PortSet( string _nodeId, Vector2 _pos, string _pointObjName)
     {
         setGuid = Guid.NewGuid().ToString();
         localInGuid = Guid.NewGuid().ToString();
         localOutGuid = Guid.NewGuid().ToString();
-        pointObjectInstanceId = _pointObjId;
+        //pointObjectInstanceId = _pointObjId;
         nodeGuid = _nodeId;
         position = _pos;
         pointObjectName = _pointObjName;

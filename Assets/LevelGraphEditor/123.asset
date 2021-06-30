@@ -12,70 +12,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ba7bbf0a2b74f48a6cea1eebb689a9, type: 3}
   m_Name: 123
   m_EditorClassIdentifier: Assembly-CSharp::LevelFlowSO
+  startNodeDatas:
+  - guid: 14cda795-c0fc-4819-8076-929bd93a88d0
+    position: {x: 149, y: 284}
+    portSet:
+      setGuid: cecd1935-d985-4511-8484-1f18c9b2eb2b
+      localInGuid: 344450a0-44c4-4de2-ab41-d577444d80a4
+      localOutGuid: db47ddbf-b777-4df5-acbf-c9f8ec1a53e9
+      pointObjectName: Start
+      nodeGuid: 14cda795-c0fc-4819-8076-929bd93a88d0
+      position: {x: 0, y: 0}
+    nextInPortGuid: 
+  - guid: 750d9b5f-24fb-44a8-b330-18038121a073
+    position: {x: 408, y: 510}
+    portSet:
+      setGuid: d96213e5-997d-4caa-9440-2c5a67ee8bc3
+      localInGuid: 1a9eeccb-f9e4-4bab-b95e-2d4d5f4371fc
+      localOutGuid: b023669d-5907-4e24-a98b-aabbb1ca8d94
+      pointObjectName: Start
+      nodeGuid: 750d9b5f-24fb-44a8-b330-18038121a073
+      position: {x: 0, y: 0}
+    nextInPortGuid: 
   levelNodeDatas:
-  - guid: 5db39fd0-8c3b-4860-9c87-def7e9258921
-    position: {x: -70, y: 108}
+  - guid: 474120da-2a1c-4956-a6d9-e21168ea9592
+    position: {x: 367, y: 47}
     portSets:
-    - setGuid: 88416c21-05f8-4f3d-b1ed-0e1d04767716
-      localInGuid: f88e0a82-c830-4368-b158-3466ace20d5b
-      localOutGuid: 7389eaaf-2572-4426-a7cc-f5b306f1dcac
-      pointObjectInstanceId: 42d8b816-dd5d-43f3-8ab4-7ecbf9b28715
-      pointObjectName: p2
-      nodeGuid: 5db39fd0-8c3b-4860-9c87-def7e9258921
-      position: {x: 46.165417, y: 144.34967}
-    - setGuid: 5dd07769-d0e7-4fcf-812c-9b18af8410a4
-      localInGuid: a6744bb2-9cfe-40d9-a078-b0f5ae39c081
-      localOutGuid: b9b34abd-94d5-4519-bf92-76ca815302b0
-      pointObjectInstanceId: 46ca6d1d-d151-4b1f-8ad6-a0179cb83068
-      pointObjectName: p3
-      nodeGuid: 5db39fd0-8c3b-4860-9c87-def7e9258921
-      position: {x: 157.89473, y: 134.96802}
-    - setGuid: c68548bd-ab3e-4e91-9104-18a9123e6a7b
-      localInGuid: ed4518a2-2a9b-414e-95d0-7b2c05c21c5c
-      localOutGuid: 1e5331e5-47f2-4d40-9255-dbdbbf391ab5
-      pointObjectInstanceId: e5cbe757-ea37-436c-8e95-6eb26ccbaed0
-      pointObjectName: p4
-      nodeGuid: 5db39fd0-8c3b-4860-9c87-def7e9258921
-      position: {x: 200, y: 39.232407}
-    - setGuid: 8d9cdf60-169e-49e5-a0e9-e6f9d3c9b571
-      localInGuid: 8060adb4-2d7a-4d7a-a527-0254d6ace29c
-      localOutGuid: 0bc0da61-83d5-4189-a1e8-c2fbb9559adc
-      pointObjectInstanceId: 9d6f1b5d-a207-464d-98c6-f71b2f325567
-      pointObjectName: p1
-      nodeGuid: 5db39fd0-8c3b-4860-9c87-def7e9258921
-      position: {x: 0, y: 200}
-    - setGuid: 9d6cd3be-813e-4c0d-b29c-bc997a37d70a
-      localInGuid: e2b85c10-b6c7-4869-90d7-7f745ffbc78a
-      localOutGuid: 93f18558-1236-4b3d-b966-4bb6515e881e
-      pointObjectInstanceId: e0f72420-b5e1-4450-8eea-aa4001cc5f3b
-      pointObjectName: p6
-      nodeGuid: 5db39fd0-8c3b-4860-9c87-def7e9258921
-      position: {x: 110.22556, y: 0}
-    scenePath: Assets/Scenes/Test.unity
-  - guid: 7cd004cf-23fe-4c24-9387-eadffece6d85
-    position: {x: 342, y: 111}
-    portSets:
-    - setGuid: e0b878cf-4be4-4069-8b62-1828d494fb4e
-      localInGuid: 01c87ffe-5f9c-43c3-b056-2a767af57368
-      localOutGuid: 23996ee0-ac42-4ce8-a981-3b60afac2736
-      pointObjectInstanceId: 
+    - setGuid: 20d0f70a-9969-4eee-a0bd-2297e7493bda
+      localInGuid: 0df024ee-b290-471c-a71b-b695f0473890
+      localOutGuid: f460c8cb-8d6b-4989-a09c-5f3e6c3cee7d
       pointObjectName: d8b32edd-3468-48e7-9ecc-391dbee12733
-      nodeGuid: 7cd004cf-23fe-4c24-9387-eadffece6d85
+      nodeGuid: 474120da-2a1c-4956-a6d9-e21168ea9592
       position: {x: 200, y: 0}
-    - setGuid: 614d8565-2b65-4c15-b983-4593411b081e
-      localInGuid: aa722413-6e84-4cf3-a294-cb2c9c067f13
-      localOutGuid: 6af85d02-b450-4ae6-bf0d-609f52cb2dc6
-      pointObjectInstanceId: 
+    - setGuid: 1ad3fa11-41ac-4253-9484-946a9acdd66f
+      localInGuid: 6f0e3d14-0f5d-4a0d-9eef-19decc181c38
+      localOutGuid: ebce352a-f059-4ade-91a2-6a3f6eb7d954
       pointObjectName: 5df3832f-2c76-4ff2-8ab3-43c5e188e9e3
-      nodeGuid: 7cd004cf-23fe-4c24-9387-eadffece6d85
+      nodeGuid: 474120da-2a1c-4956-a6d9-e21168ea9592
       position: {x: 0, y: 200}
     scenePath: Assets/Scenes/SampleScene.unity
   linkDatas:
-  - inPortGuid: aa722413-6e84-4cf3-a294-cb2c9c067f13
-    outPortGuid: 1e5331e5-47f2-4d40-9255-dbdbbf391ab5
-  - inPortGuid: ed4518a2-2a9b-414e-95d0-7b2c05c21c5c
-    outPortGuid: 6af85d02-b450-4ae6-bf0d-609f52cb2dc6
-  - inPortGuid: e2b85c10-b6c7-4869-90d7-7f745ffbc78a
-    outPortGuid: 23996ee0-ac42-4ce8-a981-3b60afac2736
-  - inPortGuid: 01c87ffe-5f9c-43c3-b056-2a767af57368
-    outPortGuid: 93f18558-1236-4b3d-b966-4bb6515e881e
+  - inPortGuid: 0df024ee-b290-471c-a71b-b695f0473890
+    outPortGuid: db47ddbf-b777-4df5-acbf-c9f8ec1a53e9
+  - inPortGuid: 6f0e3d14-0f5d-4a0d-9eef-19decc181c38
+    outPortGuid: b023669d-5907-4e24-a98b-aabbb1ca8d94
