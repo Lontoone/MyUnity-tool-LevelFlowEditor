@@ -14,7 +14,7 @@ Create data asset: `Create > Level > levelFlow`
 
 Double click to open the editor windo.
 
-*note: Keep `MainScene` null if you don't have a scene that needs to be consistant exist.
+*note: Keep `MainScene` null if you don't have a scene that needs to be consistantly exist.
 
 
 ## Tool Bar:
