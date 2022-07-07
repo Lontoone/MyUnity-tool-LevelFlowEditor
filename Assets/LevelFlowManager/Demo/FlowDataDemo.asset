@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ba7bbf0a2b74f48a6cea1eebb689a9, type: 3}
+  m_Name: FlowDataDemo
+  m_EditorClassIdentifier: 
+  mainSceneName: MainScene
+  startNodeDatas:
+  - guid: 9468fd1e-d2d2-4cd6-b2b8-1e692e41e6ba
+    position: {x: 205, y: 210}
+    portSet:
+      setGuid: 10d77cf0-2ee0-4901-8e80-379405bbc05d
+      localInGuid: c83f2f2d-8676-4ca7-8e86-3ba94c9385b6
+      localOutGuid: c8371328-b257-4f56-aa2d-7275e5a126ea
+      pointObjectName: Start
+      nodeGuid: 9468fd1e-d2d2-4cd6-b2b8-1e692e41e6ba
+      position: {x: 0, y: 0}
+    startName: StartPoint
+  levelNodeDatas:
+  - guid: f090a998-7377-440f-b029-cd2e83f60840
+    position: {x: 427, y: 2}
+    portSets:
+    - setGuid: de51d2ed-69a8-41ad-94bb-3436851b3eb3
+      localInGuid: 6703ed87-609e-46b0-a495-b49d1dac5810
+      localOutGuid: 07805d84-99a6-46fd-a403-6fbc2df4716e
+      pointObjectName: Red Point
+      nodeGuid: f090a998-7377-440f-b029-cd2e83f60840
+      position: {x: 200, y: 102.61661}
+    - setGuid: b9ef6dfc-7bc0-4674-878d-1c2849ef8c59
+      localInGuid: 3c10efaa-0244-48b1-b9b0-09525de3aba4
+      localOutGuid: d05b4705-4eea-4a67-99f0-d29bbb02ddf1
+      pointObjectName: Green Point
+      nodeGuid: f090a998-7377-440f-b029-cd2e83f60840
+      position: {x: 100.97847, y: 200}
+    - setGuid: 17f969df-95c4-4e3b-a93b-3530a2bd122d
+      localInGuid: a43a0fe8-6bab-4ba0-9a1d-505dcb4a840f
+      localOutGuid: 517d6526-c70b-49bc-9acf-de16059ec00c
+      pointObjectName: Blue Point
+      nodeGuid: f090a998-7377-440f-b029-cd2e83f60840
+      position: {x: 100.97847, y: 0}
+    - setGuid: 18ed1f43-affa-42b7-a247-171b7f7f4be7
+      localInGuid: 4a191dbf-af58-4b2f-9ddf-ab0ba13a0cdf
+      localOutGuid: 81bd8218-66e0-4273-86a9-481318fdb5f7
+      pointObjectName: Start Point
+      nodeGuid: f090a998-7377-440f-b029-cd2e83f60840
+      position: {x: 0, y: 102.61661}
+    loadType: 1
+    asyncType: 0
+    scenePath: Assets/LevelFlowManager/Demo/Scenes/Scene1.unity
+    sceneAssestGuid: 24d80d05c47b98946bac1405d9e10c13
+  - guid: bb9061c3-f3a7-4f10-a9a9-0fc7eb5ab568
+    position: {x: 434, y: 462}
+    portSets:
+    - setGuid: 1ecb4222-ffea-4300-8b73-da90ddb618ca
+      localInGuid: eefd8d8a-2d62-434d-a327-2bf0a95d123f
+      localOutGuid: db9d9428-0905-424a-b58e-4288bf5a530b
+      pointObjectName: Enter Point
+      nodeGuid: bb9061c3-f3a7-4f10-a9a9-0fc7eb5ab568
+      position: {x: 0, y: 0}
+    loadType: 1
+    asyncType: 0
+    scenePath: Assets/LevelFlowManager/Demo/Scenes/Green.unity
+    sceneAssestGuid: 38c85b96235a705469ed3c7c678d32bc
+  - guid: 26f891fa-4c5b-427c-a608-b375db59ad5d
+    position: {x: 885, y: 13}
+    portSets:
+    - setGuid: c9a70bdc-5d3b-496f-aef9-897be42585b1
+      localInGuid: af62175c-422d-478a-8e6a-285eb511b5c7
+      localOutGuid: 4a09c547-18e4-44d2-bdb2-b780d3b543b0
+      pointObjectName: Enter Point
+      nodeGuid: 26f891fa-4c5b-427c-a608-b375db59ad5d
+      position: {x: 0, y: 0}
+    loadType: 1
+    asyncType: 0
+    scenePath: Assets/LevelFlowManager/Demo/Scenes/Red.unity
+    sceneAssestGuid: c2d7586c220d8e14abeaf7110f8b669d
+  - guid: b18d2437-e9c8-469d-ac79-967faccfc0fe
+    position: {x: 456, y: -478}
+    portSets:
+    - setGuid: 4cd261d4-4e53-4b60-a68d-384fb337c801
+      localInGuid: f572168d-5a1b-4f81-87b3-244a09883794
+      localOutGuid: fa362ad6-eb28-4314-85e2-b57bf2a006e7
+      pointObjectName: Enter Point
+      nodeGuid: b18d2437-e9c8-469d-ac79-967faccfc0fe
+      position: {x: 0, y: 0}
+    loadType: 1
+    asyncType: 1
+    scenePath: Assets/LevelFlowManager/Demo/Scenes/Blue.unity
+    sceneAssestGuid: d2e8645053c77ab4eb6aa0932fe5fb1c
+  linkDatas:
+  - inPortGuid: 3c10efaa-0244-48b1-b9b0-09525de3aba4
+    outPortGuid: db9d9428-0905-424a-b58e-4288bf5a530b
+  - inPortGuid: 6703ed87-609e-46b0-a495-b49d1dac5810
+    outPortGuid: 4a09c547-18e4-44d2-bdb2-b780d3b543b0
+  - inPortGuid: a43a0fe8-6bab-4ba0-9a1d-505dcb4a840f
+    outPortGuid: fa362ad6-eb28-4314-85e2-b57bf2a006e7
+  - inPortGuid: af62175c-422d-478a-8e6a-285eb511b5c7
+    outPortGuid: 07805d84-99a6-46fd-a403-6fbc2df4716e
+  - inPortGuid: eefd8d8a-2d62-434d-a327-2bf0a95d123f
+    outPortGuid: d05b4705-4eea-4a67-99f0-d29bbb02ddf1
+  - inPortGuid: f572168d-5a1b-4f81-87b3-244a09883794
+    outPortGuid: 517d6526-c70b-49bc-9acf-de16059ec00c
+  - inPortGuid: 4a191dbf-af58-4b2f-9ddf-ab0ba13a0cdf
+    outPortGuid: c8371328-b257-4f56-aa2d-7275e5a126ea

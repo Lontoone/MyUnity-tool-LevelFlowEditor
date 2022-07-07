@@ -5,7 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+  - enabled: 0
+    path: Assets/LevelFlowManager/Demo/Scenes/Test/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 0
+    path: Assets/LevelFlowManager/Demo/Scenes/Test/TestScene.unity
+    guid: cb2b22485f3f1c74c8c883de293b69d3
+  - enabled: 1
+    path: Assets/LevelFlowManager/Demo/Scenes/MainScene.unity
+    guid: 4329c0f7f2baf6441bc251cf4a9e1a32
+  - enabled: 1
+    path: Assets/LevelFlowManager/Demo/Scenes/Scene1.unity
+    guid: 24d80d05c47b98946bac1405d9e10c13
+  - enabled: 1
+    path: Assets/LevelFlowManager/Demo/Scenes/Red.unity
+    guid: c2d7586c220d8e14abeaf7110f8b669d
+  - enabled: 1
+    path: Assets/LevelFlowManager/Demo/Scenes/Blue.unity
+    guid: d2e8645053c77ab4eb6aa0932fe5fb1c
+  - enabled: 1
+    path: Assets/LevelFlowManager/Demo/Scenes/Green.unity
+    guid: 38c85b96235a705469ed3c7c678d32bc
   m_configObjects: {}
