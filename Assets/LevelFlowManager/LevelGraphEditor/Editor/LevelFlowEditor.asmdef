@@ -1,0 +1,17 @@
+{
+    "name": "LevelFlowEditor",
+    "references": [
+        "GUID:9b8ba25fced037d489fa01eb46456f65"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

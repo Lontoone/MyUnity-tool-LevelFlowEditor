@@ -11,6 +11,7 @@ public class PlayerControl : MonoBehaviour
                 Input.GetAxis("Horizontal"),
                 Input.GetAxis("Vertical"));
 
+
         transform.position = (Vector2)transform.position + move * speed * Time.fixedDeltaTime;
     }
 }
